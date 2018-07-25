@@ -28,7 +28,12 @@ class XunsearchServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->configure('scout');
+        //$this->app->configure('scout');
+        if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
+            $this->publishes([$source => config_path('scout.php')]);
+        } elseif ($this->app instanceof LumenApplication) {
+            $this->app->configure('scout');
+        }
         $this->app->singleton(EngineManager::class, function ($app) {
             return (new EngineManager($app))->extend('xunsearch', function ($app) {
                 return new XunsearchEngine(new XunsearchClient(
