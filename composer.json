@@ -1,5 +1,5 @@
 {
-    "name": "liugj/lumen-xunsearch",
+    "name": "xcalder/lumen-xunsearch",
     "description": "Xunsearch Driver for Laravel Scout.",
     "keywords": ["Lumen", "scout", "xunsearch"],
     "authors": [
